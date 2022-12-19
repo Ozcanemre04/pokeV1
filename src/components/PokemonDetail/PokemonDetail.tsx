@@ -5,10 +5,10 @@ import type { RootState } from '../../redux/store/store'
 import "../PokemonDetail/pokemonDetail.scss"
 const PokemonDetail = () => {
     const SearchValue = useSelector((state:RootState)=>state.search.search)
-    const {data:pokemonByName} = useGetPokemonByNameQuery(SearchValue)
+    const {data:pokemonByName,isLoading,isError} = useGetPokemonByNameQuery(SearchValue)
 
     
-    
+  
   return (
     <div>
       <img src={pokemonByName?.sprites.front_default} alt="" />

@@ -6,10 +6,10 @@ import { useGetAllPokemonNamesQuery } from '../../redux/Api/pokemonApi'
 import { searchForFilter } from '../../redux/Slice/SearchSlice'
 import '../search/search.scss'
 const Search = () => {
+  const [searchInput,setSearchInput] = useState('')
   const {data:allPokemon} = useGetAllPokemonNamesQuery([])
   const dispatch = useDispatch()
  
-  const [searchInput,setSearchInput] = useState('')
   
    const autoComplete = allPokemon?.results?.filter((item)=>{
     if(searchInput ===''){
@@ -18,8 +18,7 @@ const Search = () => {
    else{
     const lowerCaseSearch = searchInput.toLowerCase()
     return item.name.toLowerCase().startsWith(lowerCaseSearch)
-   }
-   })
+   }})
 
 function searchPokemon(){
   if(searchInput===""){
@@ -37,10 +36,10 @@ function searchPokemon(){
      </div>
      <div className='autocomplete'>
            {autoComplete?.map((item,index)=>(
-            <div key={index} className='all-pokemons'>
-              <MdOutlineCatchingPokemon style={{color:'red'}} className='pokeball'/>
-              <p onClick={(e)=>{setSearchInput((e.target as HTMLParagraphElement).innerText)}}>{item?.name}</p>
-            </div>
+              <div key={index} className='all-pokemons'>
+                <MdOutlineCatchingPokemon style={{color:'red'}} className='pokeball'/>
+                <p onClick={(e)=>{setSearchInput((e.target as HTMLParagraphElement).innerText)}}>{item?.name}</p>
+              </div>
            ))} 
      </div>
 
