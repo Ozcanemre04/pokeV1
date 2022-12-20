@@ -7,7 +7,7 @@
    
    .search{
    margin-inline: auto;
-    width: 50%;
+    width: 60%;
     background-color: $white;
     input{
         width: 90%;
@@ -27,7 +27,7 @@
    }
    .autocomplete{
        margin-inline: auto;
-       width: 50%;
+       width: 60%;
        height: 100px;
        overflow-y: auto;
        padding: 5px;
@@ -43,11 +43,22 @@
             margin-right: 10px;
         }
         p{
-            
             font-weight: bold;
             font-size: 20px;
             cursor: pointer;
         }
     }
    }
+}
+
+@media screen and  (max-width:1025px) {
+    .search-container{
+        width: 100%;
+        .search{
+            width: 90%;
+        }
+        .autocomplete{
+            width: 90%;
+        }
+    }
 }

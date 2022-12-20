@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const initialState ={
-    search :'pikachu'
+    search :'pidgey'
    }
 
 export const  searchSlice = createSlice({

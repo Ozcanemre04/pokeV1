@@ -4,7 +4,8 @@ import {MdOutlineCatchingPokemon} from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { useGetAllPokemonNamesQuery } from '../../redux/Api/pokemonApi'
 import { searchForFilter } from '../../redux/Slice/SearchSlice'
-import '../search/search.scss'
+import '../search/search.scss';
+
 const Search = () => {
   const [searchInput,setSearchInput] = useState('')
   const {data:allPokemon} = useGetAllPokemonNamesQuery([])

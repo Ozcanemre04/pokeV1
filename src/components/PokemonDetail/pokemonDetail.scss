@@ -1,0 +1,143 @@
+@import '../../sass/variable-function.scss';
+.pokemon-detail{
+    display: flex;
+    width: 60%;
+    margin-inline: auto;
+    height: fit-content;
+    padding: 10px;
+    
+   
+    .left-side{
+        width: 40%;
+        padding: 5px;
+        .type,.weight,.height{
+            transform:perspective(400px) rotate3d(-4,10,0,50deg);
+            display: flex;
+            transition: 0.6s ease-in;
+            align-items: center;
+            margin-top: 20px;
+            &:hover{
+                transform:perspective(400px) rotate3d(-4,10,0,25deg);
+            }
+            b{
+                margin-right: 10px;
+            }
+            p{
+                margin-right: 10px
+            }
+            .electric{
+                @include typeColor(electric);
+            }
+            .grass{
+                @include typeColor(grass);
+            }
+            .fire{
+                @include typeColor(fire);
+            }
+            .water{
+                @include typeColor(water);
+            }
+            .ice{
+                @include typeColor(ice);
+            }
+            .fighting{
+                @include typeColor(fighting);
+            }
+            .poison{
+                @include typeColor(poison);
+            }
+            .ground{
+                @include typeColor(ground);
+            }
+            .flying{
+                @include typeColor(flying);
+            }
+            .psychic{
+                @include typeColor(psychic);
+            }
+            .bug{
+                @include typeColor(bug);
+            }
+            .rock{
+                @include typeColor(rock);
+            }
+            .normal{
+                @include typeColor(normal);
+                
+            }
+            .ghost{
+                @include typeColor(ghost);
+            }
+            .dragon{
+                @include typeColor(dragon);
+            }
+            .dark{
+                @include typeColor(dark);
+            }
+            .steel{
+                @include typeColor(steel);
+            }
+            .fairy{
+                @include typeColor(fairy);
+            }
+        }
+
+    }
+    .middle-side{
+        display: flex;
+        width: 30%;
+        flex-direction: column;
+        align-items: center;
+        
+            img{
+                width: 150px;
+                height: 150px;
+                object-fit:contain;
+                image-rendering:pixelated;
+                
+                
+            }
+
+        
+    }
+    .right-side{
+        width: 30%;
+        .stat{
+            transform:perspective(400px) rotate3d(-4,-10,-0,-60deg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.6s ease-in;
+            margin-top: 20px;
+            &:hover{
+                transform: perspective(400px) rotate3d(-4,-10,0,-30deg);
+            }
+            p{
+                margin-right: 20px;
+                width: 20%;
+            }
+            meter{
+                width: 80%;
+                height: 40px;
+                color: red;
+        
+                &::after{
+                    content: attr(value);
+                    position: relative;
+                    top:-34px;
+                    left:8px;
+                    color:black;
+                    
+                    font-size: 16px;
+            }
+            }
+        }
+
+    }
+}
+
+@media screen and  (max-width:1025px) {
+    .pokemon-detail{
+        width: 100%;
+    }
+}

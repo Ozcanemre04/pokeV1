@@ -4,4 +4,104 @@ $grey:#7D7D7D;
 $dark-grey:#3D3D3D;
 
 
+$water: #6390F0;
+$electric: #F7D02C;
+$fire: #EE8130;
+$grass: #7AC74C;
+$fighting: #C22E28;
+$normal: #A8A77A;
+$ice: #96D9D6;
+$ground: #E2BF65;
+$flying: #A98FF3;
+$dragon: #6F35FC;
+$steel: #B7B7CE;
+$poison: #A33EA1;
+$fairy: #D685AD;
+$dark: #705746;
+$bug: #A6B91A;
+$ghost: #735797;
+$rock: #B6A136;
+$psychic: #F95587;
+
+
+	@mixin typeColor($type){
+		border-radius: 10px;
+		padding: 5px;
+		color: white;
+		
+		text-shadow: 0 0 10px white;
+		@if $type == water{
+			background-color: $water;
+			box-shadow: 0 0 10px $water;
+		}
+		@else if $type == electric{
+			background-color: $electric;
+			box-shadow: 0 0 10px $electric;
+		}
+		@else if $type == fire{
+			background-color: $fire;
+			box-shadow: 0 0 10px $fire;
+		}
+		@else if $type == grass{
+			background-color: $grass;
+			box-shadow: 0 0 10px $grass;
+		}
+		@else if $type == normal{
+			background-color: $normal;
+			box-shadow: 0 0 10px $normal;
+		}
+		@else if $type == fighting{
+			background-color: $fighting;
+			box-shadow: 0 0 10px $fighting;
+		}
+		@else if $type == ice{
+			background-color: $ice;
+			box-shadow: 0 0 10px $ice;
+		}
+		@else if $type == dragon{
+			background-color: $dragon;
+			box-shadow: 0 0 10px $dragon;
+		}
+		@else if $type == fairy{
+			background-color: $fairy;
+			box-shadow: 0 0 10px $fairy;
+		}
+		@else if $type == steel{
+			background-color: $steel;
+			box-shadow: 0 0 10px $steel;
+		}
+		@else if $type == ground{
+			background-color: $ground;
+			box-shadow: 0 0 10px $ground;
+		}
+		@else if $type == flying{
+			background-color: $flying;
+			box-shadow: 0 0 10px $flying;
+		}
+		@else if $type == poison{
+			background-color: $poison;
+			box-shadow: 0 0 10px $poison;
+		}
+		@else if $type == dark{
+			background-color: $dark;
+			box-shadow: 0 0 10px $dark;
+		}
+		@else if $type == ghost{
+			background-color: $ghost;
+			box-shadow: 0 0 10px $ghost;
+		}
+		@else if $type == bug{
+			background-color: $bug;
+			box-shadow: 0 0 10px $bug;
+		}
+		@else if $type == rock{
+			background-color: $rock;
+			box-shadow: 0 0 10px $rock;
+		}
+		@else if $type == psychic{
+			background-color: $psychic;
+			box-shadow: 0 0 10px $psychic;
+		}
+	}
+
 

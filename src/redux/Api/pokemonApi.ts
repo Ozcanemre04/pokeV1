@@ -1,10 +1,10 @@
 import { createApi,fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 
-interface AllPokemon{
+export interface AllPokemon{
   results:[{name:string}]
 }
 
-interface PokemonDetail{
+export interface PokemonDetail{
   name:string,
   sprites:{front_default:string},
   height:number,
