@@ -8,7 +8,7 @@
     
    
     .left-side{
-        width: 40%;
+        width: 20%;
         padding: 5px;
         .type,.weight,.height{
             transform:perspective(400px) rotate3d(-4,10,0,50deg);
@@ -85,20 +85,16 @@
     }
     .middle-side{
         display: flex;
-        width: 30%;
+        width: 50%;
         flex-direction: column;
         align-items: center;
         
             img{
-                width: 150px;
+                width: 100%;
                 height: 150px;
                 object-fit:contain;
-                image-rendering:pixelated;
-                
-                
+                image-rendering:pixelated;    
             }
-
-        
     }
     .right-side{
         width: 30%;
@@ -138,7 +134,20 @@
 
 @media screen and  (max-width:1025px) {
     .pokemon-detail{
+        width: 90%;
+    }
+}
+@media screen and  (max-width:600px) {
+    .pokemon-detail{
         width: 100%;
-        
+        .left-side{
+            width: 40%;
+        }
+        .middle-side{
+            width: 30%;
+        }
+        .right-side{
+            width: 30%;
+        }
     }
 }
