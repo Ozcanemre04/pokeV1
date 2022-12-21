@@ -10,7 +10,7 @@ export const store = configureStore({
 
   },
   middleware:(getDefaultMiddleware)=>
-   getDefaultMiddleware().concat(pokemonApi.middleware)
+   getDefaultMiddleware({immutableCheck:false,serializableCheck:false}).concat(pokemonApi.middleware)
 
   
   

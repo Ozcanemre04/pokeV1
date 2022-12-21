@@ -4,6 +4,7 @@ export interface AllPokemon{
   results:[{name:string}]
 }
 
+
 export interface PokemonDetail{
   name:string,
   sprites:{front_default:string},

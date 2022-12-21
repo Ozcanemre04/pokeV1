@@ -6,8 +6,10 @@ import { useGetAllPokemonNamesQuery } from '../../redux/Api/pokemonApi'
 import { searchForFilter } from '../../redux/Slice/SearchSlice'
 import '../search/search.scss';
 
+
 const Search = () => {
   const [searchInput,setSearchInput] = useState('')
+  const [searchError,setSearchError] = useState('')
   const {data:allPokemon} = useGetAllPokemonNamesQuery([])
   const dispatch = useDispatch()
  
@@ -22,19 +24,30 @@ const Search = () => {
    }})
 
 function searchPokemon(){
-  if(searchInput===""){
-    console.log('empty'); 
+  if(searchInput===""){ 
+    setSearchError('input must not be empty');
   }
-  dispatch(searchForFilter(searchInput))
-  setSearchInput('')
+  else{
+    dispatch(searchForFilter(searchInput))
+    setSearchError('')
+    setSearchInput('')
+  }
 }
 
   return (
+    <>
     <div className='search-container'>
-     <div className='search'>
+     <div className={searchError === ""?'search':"search-error-input"}>
         <input type="text" value={searchInput} onChange={(e)=>{setSearchInput(e.target.value)}} />
         <button onClick={()=>{searchPokemon()}}><FaSearch/></button>
      </div>
+
+     {searchError !==''&&
+     <div className='search-error'>
+      <p>{searchError}</p>
+     </div>  
+     }
+
      <div className='autocomplete'>
            {autoComplete?.map((item,index)=>(
               <div key={index} className='all-pokemons'>
@@ -42,11 +55,9 @@ function searchPokemon(){
                 <p onClick={(e)=>{setSearchInput((e.target as HTMLParagraphElement).innerText)}}>{item?.name}</p>
               </div>
            ))} 
-     </div>
-
-     
-      
+     </div> 
     </div>
+    </>
   )
 }
 

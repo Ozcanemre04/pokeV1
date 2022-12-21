@@ -7,25 +7,32 @@ import {MdOutlineCatchingPokemon} from 'react-icons/md'
 
 const PokemonDetail = () => {
     const SearchValue = useSelector((state:RootState)=>state.search.search)
-    const {data:pokemonByName,isLoading,error} = useGetPokemonByNameQuery(SearchValue)
-    
-    
-  
-  
+    const {data:pokemonByName,isLoading,isError,error} = useGetPokemonByNameQuery(SearchValue)
+
   return (
     <>
     {isLoading===true&&
      <div><MdOutlineCatchingPokemon/></div>
      }
+     {isError === true&&
+     <div className='not-found'>
+      <div>
+       <h2>Not Found!</h2>
+      </div>
+     </div>
+     }
     <div className='pokemon-detail'>
 
       <div className='left-side'>
-      
+      <div className='name'>
+      <b>Name</b>
+      <h2>{pokemonByName?.name}</h2>
+      </div>
         <div className='type'>
-          <b>type</b>
-          {pokemonByName?.types.map((types,index)=>(
+          <b>Type</b>
+          {pokemonByName?.types?.map((types,index)=>(
             <div key={index}>
-              <p className={types?.type.name}>{types?.type.name}</p>
+              <p className={types?.type?.name}>{types?.type?.name}</p>
             </div>
           ))}
         </div>
@@ -41,20 +48,20 @@ const PokemonDetail = () => {
       </div>
 
       <div className='middle-side'>
-      <h2>{pokemonByName?.name}</h2>
-      <img src={pokemonByName?.sprites.front_default} alt="" />
+      <img src={pokemonByName?.sprites?.front_default} alt={pokemonByName?.name} />
       </div>
 
       <div className='right-side'>
-        {pokemonByName?.stats.map((stat,index)=>(
+        {pokemonByName?.stats?.map((stat,index)=>(
           <div className='stat' key={index}>
-            <p>{stat.stat.name}</p>
-            <meter className={pokemonByName?.types[0].type.name}  max="255" value={stat.base_stat}></meter>
+            <p>{stat?.stat?.name}</p>
+            <meter className={pokemonByName?.types[0]?.type.name}  max="255" value={stat?.base_stat}></meter>
           </div>
         ))}
       </div>
 
     </div>
+
     </>
   )
 }

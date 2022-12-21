@@ -1,12 +1,12 @@
 @import '../../sass/variable-function.scss';
 
 .search-container{
-   margin-top: 50px;
+   margin-top: 80px;
    width: 50%;
    margin-inline: auto;
    
    .search{
-   margin-inline: auto;
+    margin-inline: auto;
     width: 60%;
     background-color: $white;
     input{
@@ -24,7 +24,15 @@
        cursor: pointer;
      
     }
-   }
+}
+.search-error-input{
+    @extend .search;
+    border: 1px solid red;
+}
+.search-error{
+    text-align: center;
+    color: red;
+}
    .autocomplete{
        margin-inline: auto;
        width: 60%;
